@@ -6,7 +6,6 @@ console.log('server.js is connected!');
 const express = require('express');
 require('dotenv').config();
 let weatherData = require('./data/weather.json');
-// console.log(weatherData, 'tttttttt');
 
 const cors = require('cors');
 
@@ -25,7 +24,6 @@ app.get('/', (request, response) => {
 
 //add a weather route
 app.get('/weather', (request, response) => {
-//   console.log('made it here');
   try {
     let searchQuery = request.query.searchQuery;
     let dataToConstructor = weatherData.find(weather => weather.city_name.toLowerCase() === searchQuery.toLowerCase());
