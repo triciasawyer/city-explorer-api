@@ -22,7 +22,7 @@ app.get('/', (request, response) => {
 });
 
 
-//add a weather route
+//add a route
 app.get('/weather', (request, response) => {
   try {
     // let searchQuery = request.query.searchQuery;
@@ -49,5 +49,5 @@ app.use((error, request, response) => {
 });
 
 
-
+// listening to port for server
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
