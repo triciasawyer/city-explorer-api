@@ -14,7 +14,7 @@ app.get('/', (request, response) => {
   response.send('hello from our server!!');
 });
 
-//add a route
+//weather route
 app.get('/weather', getWeather);
 // app.get('/movies', getMovies);
 // app.get('/yelp', getYelp);
