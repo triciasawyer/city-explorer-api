@@ -25,9 +25,9 @@ app.get('/', (request, response) => {
 //add a weather route
 app.get('/weather', (request, response) => {
   try {
-    let searchQuery = request.query.searchQuery;
-    let dataToConstructor = weatherData.find(weather => weather.city_name.toLowerCase() === searchQuery.toLowerCase());
-    let dataSending =  dataToConstructor.data.map(dayForecast => new Forecast(dayForecast));
+    // let searchQuery = request.query.searchQuery;
+    // let dataToConstructor = weatherData.find(weather => weather.city_name.toLowerCase() === searchQuery.toLowerCase());
+    // let dataSending =  dataToConstructor.data.map(dayForecast => new Forecast(dayForecast));
     response.send(dataSending);
   } catch(error) {
     next(error);
