@@ -8,6 +8,7 @@
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+I think the first step would be to have your front end webpage built out, so then you have a bit of an idea when starting your bacnkend server content.
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
