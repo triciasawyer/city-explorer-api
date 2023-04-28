@@ -19,7 +19,7 @@ function getYelp(location, page = 1) {
 }
 
 function parseYelpData(data) {
-  console.log('made it this far', { data });
+  console.log('made it this far', {data});
   try {
     const yelpSummaries = data.businesses.map(business => {
       return new Yelp(business);
