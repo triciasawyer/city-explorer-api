@@ -5,6 +5,7 @@ const express = require('express');
 require('dotenv').config();
 let weatherData = require('./data/weather.json');
 const cors = require('cors');
+const axios = require('axios');
 const app = express();
 app.use(cors());
 
@@ -34,7 +35,8 @@ response.status(200).send(weatherSummaries);
 class Forecast {
   constructor(forecastObjects) {
     this.date = forecastObjects.date;
-    this.forecast = forecastObject.day.condition.text;
+    this.forecast = forecastObjects.day.condition.text;
+    console.log('TTTTT', forecastObjects.day.condition.text);
   }
 }
 
