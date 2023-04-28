@@ -3,25 +3,30 @@
 console.log('server.js is connected!');
 const express = require('express');
 require('dotenv').config();
-let weatherData = require('./data/weather.json');
+// let weatherData = require('./data/weather.json');
 const cors = require('cors');
-const axios = require('axios');
+// const axios = require('axios');
 const app = express();
 app.use(cors());
 
 const PORT = process.env.PORT || 5005;
 
+const getWeather = require('./modules/weather.js');
+// const getMovies = require('./modules/movies.js');
+const getYelp = require('./modules/yelp.js');
+
+
 app.get('/', (request, response) => {
   response.send('hello from our server!!');
 });
 
+
+
+
 //weather route
 app.get('/weather', getWeather);
-app.get('/movies', getMovies);
-// app.get('/yelp', getYelp);
-
-
-
+// app.get('/movies', getMovies);
+app.get('/yelp', getYelp);
 
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios');
-
+// let weatherData = require('./data/weather.json');
 module.exports = getWeather;
 
 
