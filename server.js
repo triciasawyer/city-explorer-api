@@ -38,7 +38,7 @@ async function getWeather(request, response) {
 // Movie route
 // async function getMovie(request, response) {
 //   let searchQuery = request.query.searchQuery;
-//   let url = `http://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`
+// let url = https://api.themoviedb.org/3/search/movie?api_key=45b661bcbcf607acc1df316673e4b463&language=en-US&query=seattle&page=1&include_adult=false
 
 // let cityMovies = await axios.get(url)
 //  let movieArray = cityMovies.data.results.map(movieData => new Movie(movieData));
