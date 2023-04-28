@@ -1,43 +1,37 @@
 /* eslint-disable no-undef */
 'use strict';
 console.log('server.js is connected!');
-
-const getWeather = require('./moduules/weather');
-
-
 const express = require('express');
 require('dotenv').config();
-// let weatherData = require('./data/weather.json');
+let weatherData = require('./data/weather.json');
 const cors = require('cors');
 const axios = require('axios');
 const app = express();
 app.use(cors());
+
 const PORT = process.env.PORT || 5005;
 
-
-//routes
 app.get('/', (request, response) => {
   response.send('hello from our server!!');
 });
 
 //weather route
-app.get('/weather', handleWeather);
+app.get('/weather', getWeather);
 // app.get('/movies', getMovies);
 // app.get('/yelp', getYelp);
 
+//weather route
+async function getWeather(request, response) {
+  let { latitude, longitude } = request.query;
+  let url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&days=5&aqi=no&alerts=no&q=${latitude},${longitude}`;
 
-
-
-function handleWeather(request, response) {
-  const { latitude, longitude } = request.query;
-  getWeather(latitude, longitude)
-    .then((summaries) => response.state(200).send(summaries))
-    .catch((error) => {
-      console.log(error);
-      response.state(500).send('Something went wrong!');
-    });
-
+  let weatherData = await axios.get(url);
+  let weatherSummaries = weatherData.data.forecast.forecastday.map(day => {
+    return new Forecast(day);
+  });
+  response.status(200).send(weatherSummaries);
 }
+
 
 
 
@@ -52,12 +46,21 @@ function handleWeather(request, response) {
 // }
 
 
-// class Movie{
-//   constructor(movieObject) {
 
+class Forecast {
+  constructor(forecastObjects) {
+    this.date = forecastObjects.date;
+    this.forecast = forecastObjects.day.condition.text;
+    console.log('TTTTT', forecastObjects.day.condition.text);
+  }
+}
+
+
+// class Movie{
+//   constructor(movieObject) {  
+    
 //   }
 // }
-
 
 
 
