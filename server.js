@@ -17,9 +17,10 @@ app.get('/', (request, response) => {
 
 //weather route
 app.get('/weather', getWeather);
-app.get('/movies', getMovies);
+// app.get('/movies', getMovies);
 // app.get('/yelp', getYelp);
 
+//weather route
 async function getWeather(request, response) {
   let { latitude, longitude } = request.query;
   let url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&days=5&aqi=no&alerts=no&q=${latitude},${longitude}`;
@@ -31,6 +32,21 @@ async function getWeather(request, response) {
   response.status(200).send(weatherSummaries);
 }
 
+
+
+
+// Movie route
+// async function getMovie(request, response) {
+//   let searchQuery = request.query.searchQuery;
+//   let url = `http://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`
+
+// let cityMovies = await axios.get(url)
+//  let movieArray = cityMovies.data.results.map(movieData => new Movie(movieData));
+//  response.status(200).send(movieArray)
+// }
+
+
+
 class Forecast {
   constructor(forecastObjects) {
     this.date = forecastObjects.date;
@@ -40,22 +56,11 @@ class Forecast {
 }
 
 
-
-
-async function getMovie(request, response) {
-  let searchQuery = request.query.searchQuery;
-  let url = `http://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`
-
-let cityMovies = await axios.get(url)
- let movieArray = cityMovies.data.results.map(movieData => new Movie(movieData));
- response.status(200).send(movieArray)
-}
-
-class Movie{
-  constructor(movieObject) {  
+// class Movie{
+//   constructor(movieObject) {  
     
-  }
-}
+//   }
+// }
 
 
 
