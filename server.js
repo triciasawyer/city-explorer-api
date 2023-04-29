@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 'use strict';
 console.log('server.js is connected!');
+
 const express = require('express');
 require('dotenv').config();
 // let weatherData = require('./data/weather.json');
@@ -12,8 +13,8 @@ app.use(cors());
 const PORT = process.env.PORT || 5005;
 
 const getWeather = require('./modules/weather.js');
-// const getMovies = require('./modules/movies.js');
-const getYelp = require('./modules/yelp.js');
+const getMovies = require('./modules/movies.js');
+// const getYelp = require('./modules/yelp.js');
 
 
 app.get('/', (request, response) => {
@@ -25,11 +26,8 @@ app.get('/', (request, response) => {
 
 //weather route
 app.get('/weather', getWeather);
-// app.get('/movies', getMovies);
-app.get('/yelp', getYelp);
-
-
-
+app.get('/movies', getMovies);
+// app.get('/yelp', getYelp);
 
 
 
