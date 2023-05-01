@@ -4,14 +4,27 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+City Explorer Application allows a user to search for a location, present a Map, as well as interesting information about the area.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
-I think the first step would be to have your front end webpage built out, so then you have a bit of an idea when starting your bacnkend server content.
+clone (or fork) repo
+npm init
+Install required dependencies- express, cors
+Set up .eslintrc.json, .env, .gitignore
+Copy weather.json file from the course github
+Construct server.js and make Express GET request to weather.json
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+This project uses Node.js and Express.js server.
+Uses the following packages:
+
+Express
+CORS
+dontenv
+axios
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
