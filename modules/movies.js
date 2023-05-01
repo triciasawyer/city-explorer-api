@@ -2,18 +2,18 @@
 
 const axios = require('axios');
 
-module.exports = getMovies;
-
-
 
 // Movie route
 async function getMovies(request, response) {
-    let { lat, lon } = request.query;
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&language=en-US&query=seattle&page=1&include_adult=false`;
+    console.log('city?: ',request.query);
+    let cityMovieSearch = request.query;
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&language=en-US&query=${cityMovieSearch}&page=1&include_adult=false`;
 
-    let cityMovie = await axios.get(url)
-    let movieArray = cityMovie.data.movieData.map(movie => new Movie(movieData));
-    response.status(200).send(movieArray)
+    let cityMovie = await axios.get(url);
+    console.log('url return data:',cityMovie.data.results);
+    let movieArray = cityMovie.data.results.map(movie => new Movie(movie));
+    console.log('data to pass to front end',movieArray);
+    response.status(200).send(movieArray);
 }
 
 
@@ -27,3 +27,4 @@ class Movie {
 }
 
 
+module.exports = getMovies;

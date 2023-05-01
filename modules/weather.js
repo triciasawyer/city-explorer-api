@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios');
-module.exports = getWeather;
+
 
 
 //weather route
@@ -22,6 +22,9 @@ async function getWeather(request, response) {
     constructor(forecastObjects) {
       this.date = forecastObjects.date;
       this.forecast = forecastObjects.day.condition.text;
-      console.log('TTTTT', forecastObjects.day.condition.text);
+      // console.log('TTTTT', forecastObjects.day.condition.text);
     }
   }
+
+
+  module.exports = getWeather;
