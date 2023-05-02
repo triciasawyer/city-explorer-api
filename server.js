@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5005;
 //this brings our code for our api calls
 const getWeather = require('./modules/weather.js');
 const getMovies = require('./modules/movies.js');
-// const getYelp = require('./modules/yelp.js');
+const getYelp = require('./modules/yelp.js');
 
 //REST Method ~ get it is a Route defines....
 app.get('/', (request, response) => {
@@ -22,7 +22,7 @@ app.get('/', (request, response) => {
 //weather route
 app.get('/weather', getWeather);
 app.get('/movies', getMovies);
-// app.get('/yelp', getYelp);
+app.get('/yelp', getYelp);
 
 
 
